@@ -15,7 +15,7 @@ const Clients = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getposts({}, 1, "desc", 6))
+        dispatch(getposts({}, 1, "desc", 5))
     })
 
     return (
@@ -25,7 +25,8 @@ const Clients = () => {
                 breakpointCols={{ default: 5, 800: 3, 400: 2 }}
                 className="my-masonry-grid"
                 columnClassName="my-masonry-grid_column">
-                    { homeposts.posts.map((item)=>(
+                    { homeposts.posts ?
+                     homeposts.posts.map((item)=>(
                 <Card key={item.id}>
                     <CardContent>
                         <Typography >
@@ -41,7 +42,9 @@ const Clients = () => {
                         <Button size="small" variant="dark">Learn More</Button>
                     </CardActions>
                 </Card>
-                    ))}
+                    ))
+                    :null
+                    }
             </Masonry>
             <NewsLetter/>
         </>

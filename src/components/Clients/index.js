@@ -24,7 +24,8 @@ const Clients = () => {
                 breakpointCols={{ default: 5, 800: 3, 400: 2 }}
                 className="my-masonry-grid"
                 columnClassName="my-masonry-grid_column">
-                    {Clients.clients.map((item)=>(
+                    {Clients.clients ?
+                    Clients.clients.map((item)=>(
                 <Card key={item.id}>
                     <CardContent>
                         <Typography >
@@ -39,7 +40,9 @@ const Clients = () => {
                         <Button size="small" variant="dark">Learn More</Button>
                     </CardActions>
                 </Card>
-                    ))}
+                    
+                    ))
+                    :null}
             </Masonry>
             <NewsLetter/>
         </>

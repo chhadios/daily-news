@@ -18,10 +18,6 @@ const HomePosts = () => {
         dispatch(getposts({}, 1, "desc", 6))
     }, [dispatch])
 
-    useEffect(() => {
-        dispatch(getClients())
-    }, [dispatch])
-
     const loadMorePosts = () => {
         const page = homeposts.page + 1
         setLoading(true)
